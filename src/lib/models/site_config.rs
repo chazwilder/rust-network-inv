@@ -3,39 +3,40 @@ pub mod all_sites {
     use serde::{Deserialize, Serialize};
 
     #[derive(Debug, Serialize, Deserialize)]
+    #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
     pub struct InventoryConfig {
-        #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
-        pub ID: Option<ObjectId>,
-        pub WHSE: String,
-        pub SDM: i32,
-        pub MA: i32,
-        pub EBS: i32,
-        pub YMS: i32,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub EXCLUSION_SKUS: Option<Vec<String>>,
+        pub id: Option<ObjectId>,
+        pub whse: String,
+        pub sdm: i32,
+        pub ma: i32,
+        pub ebs: i32,
+        pub yms: i32,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub EXCLUSION_SUBS: Option<Vec<String>>,
+        pub exclusion_skus: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub EXCLUSION_TYPES: Option<Vec<String>>,
+        pub exclusion_subs: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_SERVER: Option<String>,
+        pub exclusion_types: Option<Vec<String>>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_DB: Option<String>,
+        pub sdm_server: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_OHQ_QUERY: Option<String>,
+        pub sdm_db: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub MA_OHQ_QUERY: Option<String>,
+        pub sdm_ohq_query: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_YMS_QUERY: Option<String>,
+        pub ma_ohq_query: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub MA_YMS_QUERY: Option<String>,
+        pub sdm_yms_query: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub ONE_PARTY_LOGISTICS: Option<i32>,
+        pub ma_yms_query: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub EBS_QUERY: Option<String>,
+        pub one_party_logistics: Option<i32>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_USER: Option<String>,
+        pub ebs_query: Option<String>,
         #[serde(skip_serializing_if = "Option::is_none")]
-        pub SDM_PASS: Option<String>,
+        pub sdm_user: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        pub sdm_pass: Option<String>,
     }
 }
