@@ -5,7 +5,7 @@ use tokio;
 use crate::models::ManhattanWmsRow;
 
 #[tokio::main]
-pub async fn get_ma(query: &str) -> Result<Vec<ManhattanWmsRow>, anyhow::Error> {
+pub async fn get_ma_wms(query: &str) -> Result<Vec<ManhattanWmsRow>, anyhow::Error> {
     dotenv().ok();
     let username = env::var("MA_USER").unwrap();
     let password = env::var("MA_PASS").unwrap();
