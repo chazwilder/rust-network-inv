@@ -2,7 +2,7 @@ pub mod all_sites {
     use mongodb::bson::oid::ObjectId;
     use serde::{Deserialize, Serialize};
 
-    #[derive(Debug, Serialize, Deserialize)]
+    #[derive(Clone, Debug, Serialize, Deserialize)]
     #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
     pub struct InventoryConfig {
         #[serde(skip_serializing_if = "Option::is_none")]

@@ -9,7 +9,7 @@ use crate::models::InventoryConfig;
 
 
 
-#[tokio::main]
+
 pub async fn get_sites()-> Result<Vec<InventoryConfig>, anyhow::Error> {
     dotenv().ok();
     let url = env::var("MONGO_DB_URL").expect("MONGO_DB_URL must be set");
@@ -23,7 +23,6 @@ pub async fn get_sites()-> Result<Vec<InventoryConfig>, anyhow::Error> {
     let mut data = Vec::new();
     while let Some(result) = cursor.try_next().await? {
         let site: InventoryConfig = mongodb::bson::from_bson(mongodb::bson::Bson::Document(result))?;
-        println!("{:#?}", site);
         data.push(site);
     }
     return Ok(data);
